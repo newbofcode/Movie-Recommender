@@ -1,0 +1,32 @@
+{% extends 'accessBase.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %} 
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Square 1 -->
+            <div class="col-md-6 d-flex align-items-center">
+                <a href="{{url_for('rate')}}" class="btn btn-primary btn-lg btn-block custom-btn">
+                    Rate Movies
+                </a>
+            </div>
+            <!-- Square 2 -->
+            <div class="col-md-6 d-flex align-items-center">
+                <a href="{{url_for('recommendations')}}" class="btn btn-secondary btn-lg btn-block custom-btn">
+                    See recommendations
+                </a>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* Custom styles for increased button height */
+        .custom-btn {
+            height: 80vh; /* Adjust the height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+{% endblock %}

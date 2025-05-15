@@ -1,0 +1,72 @@
+{% extends 'accessBase.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/forms.css')}}">
+
+{% endblock %}
+
+{% block body %}
+<!--
+<div class="form-container" style="margin-top: 0;">
+  <div class="form-section">
+    <form action="" method = 'POST'>
+      <fieldset>
+          {{form.hidden_tag()}}
+          <div class="form-group">
+              {%if form.title.errors%}
+                  {{form.title(class="form-control form-control-sm is-invalid")}}
+                  <div class="invalid-feedback">
+                      {%for error in form.title.errors%}
+                          <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+              {%else%}
+                  {{form.title(class="form-control form-control-sm")}}
+              {%endif%}
+          </div>
+          <div class="form-group">
+              {{form.rating.label(class="form-control-label")}}
+              {%if form.rating.errors%}
+                  {{form.rating(class="form-control form-control-sm is-invalid")}}
+                  <div class="invalid-feedback">
+                      {%for error in form.rating.errors%}
+                          <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+              {%else%}
+                  {{form.rating(class="form-control form-control-sm")}}
+              {%endif%}
+          </div>
+      
+      </fieldset>
+      <div class="form-group">
+          {{form.submit(class="btn btn-outline-info")}}
+      </div>
+    </form>
+  </div>
+</div>
+-->
+<section class="section">
+  <div class="columns">
+    <div style="display: flex; justify-content: center; width:90%;">
+      <div class="column is-one-third is-offset-one-third">
+          <input type="text" class="input" style="width:200%;" placeholder="Search" name="q" hx-get="/Search" hx-trigger="keyup changed delay:500ms" hx-target="#results">
+      </div>
+  </div>
+  
+  </div>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Rating</th>
+        <th>Director</th>
+        <th>Rate</th>
+      </tr>
+    </thead>
+    <tbody id="results">
+    </tbody>
+  </table>
+</section>
+{% endblock %}

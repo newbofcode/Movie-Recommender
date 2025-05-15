@@ -1,0 +1,27 @@
+{% extends 'accessBase.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <div class="columns">
+      <div class="column is-one-third is-offset-one-third">
+        <input type="text" class="input" placeholder="Search" name="q" hx-get="/search" hx-trigger="keyup changed delay:500ms" hx-target="#results">
+      </div>
+    </div>
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Rating</th>
+          <th>Director</th>
+        </tr>
+      </thead>
+      <tbody id="results">
+
+      </tbody>
+    </table>
+</section>
+{% endblock %}

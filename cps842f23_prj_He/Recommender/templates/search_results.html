@@ -1,0 +1,46 @@
+{% for result in results %}
+<tr>
+    <td>{{ result.title }}</td>
+    <td>{{ result.genre }}</td>
+    <td>{{ result.rating }}</td>
+    <td>{{ result.director }}</td>
+    <td>
+        <form action="" method = 'POST'>
+            <fieldset>
+                {{form.hidden_tag()}}
+                <div class="form-group">
+                    {%if form.title.errors%}
+                        {{form.title(class="form-control form-control-sm is-invalid", value = result.title, readonly=True)}}
+                        <div class="invalid-feedback">
+                            {%for error in form.title.errors%}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {%else%}
+                        {{form.title(class="form-control form-control-sm", value = result.title, readonly=True)}}
+                    {%endif%}
+                </div>
+                <div class="form-group">
+                    {{form.rating.label(class="form-control-label")}}
+                    {%if form.rating.errors%}
+                        {{ form.rating(class="form-control form-control-sm is-invalid", value=user_ratings_dict.get(result.title, '')) }}
+                        
+                        <div class="invalid-feedback">
+                            {%for error in form.rating.errors%}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {%else%}
+                        {{ form.rating(class="form-control form-control-sm", value=user_ratings_dict.get(result.title, '')) }}
+                        
+                    {%endif%}
+                </div>
+            
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}
+            </div>
+        </form>
+    </td>
+</tr>
+{% endfor %}
